@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.charlest.openweathermap.R;
+import com.charlest.openweathermap.roomdb.AppDatabase;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,5 +32,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        AppDatabase appDatabase = AppDatabase.getInstance(getApplication());
     }
 }

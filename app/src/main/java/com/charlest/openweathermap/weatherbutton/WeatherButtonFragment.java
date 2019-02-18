@@ -1,23 +1,21 @@
-package com.charlest.openweathermap.weatherdetail;
+package com.charlest.openweathermap.weatherbutton;
 
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.charlest.openweathermap.R;
-
 import androidx.fragment.app.Fragment;
 
-public class WeatherDetailFragment extends Fragment {
 
+public class WeatherButtonFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_weather_detail, container, false);
+        return inflater.inflate(R.layout.fragment_weather_button, container, false);
     }
 
 }
