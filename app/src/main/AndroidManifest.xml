@@ -3,6 +3,8 @@
     package="com.charlest.openweathermap">
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:name=".appcore.AppInjector"
@@ -26,6 +28,7 @@
             android:screenOrientation="portrait">
 
         </activity>
+        <service android:name=".localtiontracker.LocationTrackerService"/>
     </application>
 
 </manifest>

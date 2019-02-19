@@ -1,10 +1,8 @@
 package com.charlest.openweathermap.weatherdetail.ui;
 
 
-import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,10 +13,9 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.charlest.openweathermap.R;
-import com.charlest.openweathermap.RefreshDataEvent;
+import com.charlest.openweathermap.events.RefreshDataEvent;
 import com.charlest.openweathermap.roomdb.entities.WeatherData;
 import com.charlest.openweathermap.weatherdetail.data.WeatherDetail;
-import com.charlest.openweathermap.weatherlist.ui.WeatherListUIState;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;

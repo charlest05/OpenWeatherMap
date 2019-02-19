@@ -4,7 +4,6 @@ package com.charlest.openweathermap.weatherlist.ui;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 
 import com.charlest.openweathermap.R;
-import com.charlest.openweathermap.RefreshDataEvent;
+import com.charlest.openweathermap.events.RefreshDataEvent;
 import com.charlest.openweathermap.roomdb.entities.WeatherData;
 
 import org.greenrobot.eventbus.EventBus;
@@ -111,7 +110,6 @@ public class WeatherListFragment extends Fragment implements IOnWeatherDataClick
         });
 
         weatherListViewModel.refreshData();
-
     }
 
     private AlertDialog alertDialog;

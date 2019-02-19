@@ -3,6 +3,9 @@ package com.charlest.openweathermap.appcore;
 import android.app.Application;
 
 import com.charlest.openweathermap.BuildConfig;
+import com.charlest.openweathermap.localtiontracker.data.CurrentLocationDao;
+import com.charlest.openweathermap.localtiontracker.data.CurrentLocationRepositoryRoomImpl;
+import com.charlest.openweathermap.localtiontracker.data.ICurrentLocationRepository;
 import com.charlest.openweathermap.roomdb.AppDatabase;
 import com.charlest.openweathermap.roomdb.dao.WeatherDataDao;
 import com.charlest.openweathermap.weatherrepo.IWeatherRepository;
@@ -93,5 +96,19 @@ public class AppModule {
     @Singleton
     public Executor provideExecutor() {
         return Executors.newSingleThreadExecutor();
+    }
+
+    @NonNull
+    @Provides
+    @Singleton
+    public CurrentLocationDao provideCurrentLocationDao(AppDatabase appDatabase) {
+        return appDatabase.currentLocationDao();
+    }
+
+    @NonNull
+    @Provides
+    @Singleton
+    public ICurrentLocationRepository provideCurrentLocationRepository(CurrentLocationDao currentLocationDao, Executor executor) {
+        return new CurrentLocationRepositoryRoomImpl(currentLocationDao, executor);
     }
 }

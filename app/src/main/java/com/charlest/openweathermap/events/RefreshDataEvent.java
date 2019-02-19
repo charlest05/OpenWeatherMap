@@ -1,4 +1,4 @@
-package com.charlest.openweathermap;
+package com.charlest.openweathermap.events;
 
 public class RefreshDataEvent {
     private String message;
