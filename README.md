@@ -17,6 +17,7 @@ OpenWeatherMapApiKey="{YourApiKeyJHere}"
 - **Navigation Architecture Component** for fragment management and navigation
 - **Lifecycle  Architecture Component** for **ViewModel** and **LiveData** programming approach
 - **Room Database** for offline persistence of Weather data
+- **Google Play Service Location** for location tracking
 
 ## App Screens
 - **Splash Screen**
