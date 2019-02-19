@@ -1,13 +1,13 @@
 # OpenWeatherMap
 OpenWeatherMap is an Android Application that fetches Weather data for a specific location using  https://openweathermap.org/api. The app was created using MVVM programming pattern.  
 
-Setup Instruction
+## Setup Instruction
 - If you encounter build error regarding ApiKey, add the code snippet below inside your **gradle.properties** located in **/home/{user}/.gradle** see full [tutorial](https://medium.com/code-better/hiding-api-keys-from-your-android-repository-b23f5598b906)
 ```
 OpenWeatherMapApiKey="{YourApiKeyJHere}"
 ```
 
-Libraries Used
+## Libraries Used
 - **Dagger 2** dependency injection library
 - **EventBus** publisher/subscriber pattern for loose coupling of callbacks
 - **RxJava2/RxAndroid** used for handling network requests with retrofit 2 
@@ -18,7 +18,7 @@ Libraries Used
 - **Lifecycle  Architecture Component** for **ViewModel** and **LiveData** programming approach
 - **Room Database** for offline persistence of Weather data
 
-App Screens
+## App Screens
 - **Splash Screen**
     - When you launch the app it shows first the splash screen for 2 seconds, also it has different design for each build variant, such as Production, Development and Testing build variant
 - **Main Screen**
