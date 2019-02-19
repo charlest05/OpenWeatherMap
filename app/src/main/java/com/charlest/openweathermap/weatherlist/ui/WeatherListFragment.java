@@ -110,8 +110,6 @@ public class WeatherListFragment extends Fragment implements IOnWeatherDataClick
             }
         });
 
-
-        Log.d("YEAH", "YEAH");
         weatherListViewModel.refreshData();
 
     }
