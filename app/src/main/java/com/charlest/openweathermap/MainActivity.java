@@ -10,7 +10,7 @@ import com.charlest.openweathermap.roomdb.AppDatabase;
 public class MainActivity extends AppCompatActivity {
 
     //DONE Splash Screen/
-    //TODO Main Screen
+    //DONE Main Screen
     //TODO Weather Detail Screen
     //DONE Set application version to 3.3 and version code to 3333
     //DONE Build Variants production, dev, test

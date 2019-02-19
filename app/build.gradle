@@ -11,8 +11,12 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
+        debug {
+            buildConfigField 'String', "ApiKey", OpenWeatherMapApiKey
+        }
         release {
             minifyEnabled false
+            buildConfigField 'String', "ApiKey", OpenWeatherMapApiKey
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -38,6 +42,7 @@ android {
         apptest { res.srcDirs = ['src/apptest/res', 'src/apptest/res/'] } 
         production {res.srcDirs = ['src/production/res', 'src/production/res/'] }
     }
+    dataBinding.enabled = true
 }
 
 dependencies {
@@ -69,6 +74,10 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
     implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
     implementation 'com.squareup.okhttp3:logging-interceptor:3.11.0'
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
+    implementation "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
+    implementation "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
+    implementation "org.greenrobot:eventbus:$eventBusVersion"
 
     //Testing
     implementation 'androidx.constraintlayout:constraintlayout:1.1.2'

@@ -15,7 +15,7 @@ import androidx.room.Query;
 public interface WeatherDataDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void weatherDataDao(List<WeatherData> weatherData);
+    void insertWeatherDataDao(List<WeatherData> weatherData);
 
     @Query("SELECT * FROM WEATHER_DATA")
     LiveData<List<WeatherData>> fetchWeatherDataList();

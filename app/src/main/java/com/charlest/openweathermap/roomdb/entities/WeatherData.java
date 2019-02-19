@@ -92,12 +92,23 @@ public class WeatherData {
         return weathers;
     }
 
+    public String getActualWeather() {
+        if(weathers == null || weathers.size() == 0)
+            return "";
+        else
+            return weathers.get(0).getMain();
+    }
+
     public void setWeathers(List<Weather> weathers) {
         this.weathers = weathers;
     }
 
     public Main getMain() {
         return main;
+    }
+
+    public String getTemperature() {
+        return String.valueOf(main.getTemperature()) + (char) 0x00B0;
     }
 
     public void setMain(Main main) {

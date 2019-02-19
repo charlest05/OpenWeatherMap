@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/weatherListFragment"
-        android:name="com.charlest.openweathermap.weatherlist.WeatherListFragment"
+        android:name="com.charlest.openweathermap.weatherlist.ui.WeatherListFragment"
         android:label="WeatherListFragment" >
         <action
             android:id="@+id/action_weatherListFragment_to_weatherDetailFragment"

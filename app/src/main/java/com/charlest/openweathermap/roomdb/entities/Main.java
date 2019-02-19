@@ -13,12 +13,12 @@ public class Main {
 
     @Expose
     @SerializedName("pressure")
-    private int pressure;
+    private double pressure;
 
 
     @Expose
     @SerializedName("humidity")
-    private int humidity;
+    private double humidity;
 
 
     @Expose
@@ -30,7 +30,7 @@ public class Main {
     @SerializedName("temp_max")
     private double maxTemperature;
 
-    public Main(double temperature, int pressure, int humidity, double minTemperature, double maxTemperature) {
+    public Main(double temperature, double pressure, double humidity, double minTemperature, double maxTemperature) {
         this.temperature = temperature;
         this.pressure = pressure;
         this.humidity = humidity;
@@ -46,19 +46,19 @@ public class Main {
         this.temperature = temperature;
     }
 
-    public int getPressure() {
+    public double getPressure() {
         return pressure;
     }
 
-    public void setPressure(int pressure) {
+    public void setPressure(double pressure) {
         this.pressure = pressure;
     }
 
-    public int getHumidity() {
+    public double getHumidity() {
         return humidity;
     }
 
-    public void setHumidity(int humidity) {
+    public void setHumidity(double humidity) {
         this.humidity = humidity;
     }
 
