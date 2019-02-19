@@ -10,6 +10,7 @@ import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
+import androidx.room.Update;
 
 @Dao
 public interface WeatherDataDao {
@@ -19,4 +20,10 @@ public interface WeatherDataDao {
 
     @Query("SELECT * FROM WEATHER_DATA")
     LiveData<List<WeatherData>> fetchWeatherDataList();
+
+    @Query("SELECT * FROM WEATHER_DATA WHERE id = :weatherDataId")
+    LiveData<WeatherData> getWeatherData(int weatherDataId);
+
+    @Update
+    void updateWeatherData(WeatherData weatherData);
 }

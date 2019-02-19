@@ -1,11 +1,16 @@
 package com.charlest.openweathermap.roomdb.entities;
 
+import android.util.Log;
+
 import com.charlest.openweathermap.roomdb.typeconverters.WeatherListConverter;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import androidx.annotation.NonNull;
 import androidx.room.Embedded;
@@ -70,6 +75,44 @@ public class WeatherData {
         this.dt = dt;
         this.id = id;
         this.name = name;
+    }
+
+    public String getFormattedWindData() {
+        return wind.getSpeed() + " m/s";
+    }
+
+    public String getWeatherdescription() {
+        if(weathers == null || weathers.size() == 0)
+            return "";
+        else
+            return weathers.get(0).getDescription();
+    }
+
+    public String getPressure() {
+
+        return main.getPressure() + " hpa";
+    }
+
+    public String getHumidity() {
+        return main.getHumidity() + "%";
+    }
+
+    public String getSunrise() {
+        Date date = new Date(sys.getSunrise() * 1000L);
+        return new SimpleDateFormat("HH:mm", Locale.getDefault()).format(date);
+    }
+
+    public String getSunset() {
+        Date date = new Date(sys.getSunset() * 1000L);
+        return new SimpleDateFormat("HH:mm", Locale.getDefault()).format(date);
+    }
+
+    public String getFormattedCoordinates() {
+        return "[" +coordinates.getLatitude() + ", " + coordinates.getLongitude() + "]";
+    }
+
+    public String getWeatherIconUrl() {
+        return "http://openweathermap.org/img/w/" + weathers.get(0).getIcon() + ".png";
     }
 
     public Coordinates getCoordinates() {

@@ -19,7 +19,12 @@
     </fragment>
     <fragment
         android:id="@+id/weatherDetailFragment"
-        android:name="com.charlest.openweathermap.weatherdetail.WeatherDetailFragment"
-        android:label="WeatherDetailFragment" />
+        android:name="com.charlest.openweathermap.weatherdetail.ui.WeatherDetailFragment"
+        android:label="WeatherDetailFragment" >
+        <argument
+            android:name="weatherdata_id"
+            app:argType="integer"
+            android:defaultValue="-1" />
+    </fragment>
 
 </navigation>

@@ -1,5 +1,6 @@
 package com.charlest.openweathermap.appcore;
 
+import com.charlest.openweathermap.weatherdetail.ui.WeatherDetailViewModel;
 import com.charlest.openweathermap.weatherlist.ui.WeatherListViewModel;
 import com.charlest.openweathermap.weatherrepo.IWeatherRepository;
 
@@ -11,9 +12,7 @@ import dagger.Component;
 @Component(modules = {AppModule.class})
 public interface AppCoreComponent {
 
-    void inject(IWeatherRepository.IWeatherRemoteRepository iWeatherRemoteRepository);
-
-    void inject(IWeatherRepository.IWeatherLocalRepository iWeatherLocalRepository);
-
     void inject(WeatherListViewModel weatherListViewModel);
+
+    void inject(WeatherDetailViewModel weatherDetailViewModel);
 }

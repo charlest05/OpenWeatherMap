@@ -38,4 +38,19 @@ public class WeatherRepositoryRoomImpl implements IWeatherRepository.IWeatherLoc
             }
         });
     }
+
+    @Override
+    public void updateWeatherData(final WeatherData weatherData) {
+        dbExecutor.execute(new Runnable() {
+            @Override
+            public void run() {
+                weatherDataDao.updateWeatherData(weatherData);
+            }
+        });
+    }
+
+    @Override
+    public LiveData<WeatherData> getWeatherData(int weatherDataId) {
+        return weatherDataDao.getWeatherData(weatherDataId);
+    }
 }

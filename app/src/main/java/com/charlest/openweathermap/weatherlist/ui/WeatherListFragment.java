@@ -2,7 +2,9 @@ package com.charlest.openweathermap.weatherlist.ui;
 
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +27,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -108,17 +111,33 @@ public class WeatherListFragment extends Fragment implements IOnWeatherDataClick
         });
 
 
+        Log.d("YEAH", "YEAH");
         weatherListViewModel.refreshData();
 
     }
 
+    private AlertDialog alertDialog;
+
     private void showError() {
-        if(isAdded()) {
-            new AlertDialog.Builder(requireActivity())
-                    .setMessage(getString(R.string.error_fetching_weather_data))
-                    .setPositiveButton(getString(android.R.string.ok), null)
-                    .create()
-                    .show();
+        if(isAdded() && weatherListViewModel.isDisplayErrorMessageFlag()) {
+            if(alertDialog == null) {
+                alertDialog = new AlertDialog.Builder(requireContext())
+                        .setMessage(getString(R.string.error_fetching_weather_data))
+                        .setPositiveButton(getString(android.R.string.ok), new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                weatherListViewModel.setDisplayErrorMessageFlag(false);
+                                alertDialog.dismiss();
+                            }
+                        })
+                        .setCancelable(false)
+                        .create();
+
+                alertDialog.show();
+            } else {
+                if(!alertDialog.isShowing())
+                    alertDialog.show();
+            }
         }
     }
 
@@ -138,14 +157,21 @@ public class WeatherListFragment extends Fragment implements IOnWeatherDataClick
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onRefreshData(RefreshDataEvent event) {
+        weatherListViewModel.setDisplayErrorMessageFlag(true);
         weatherListViewModel.refreshData();
     }
 
 
     @Override
     public void onWeatherDataClicked(WeatherData weatherData) {
-
+        if(isAdded()) {
+            WeatherListFragmentDirections.ActionWeatherListFragmentToWeatherDetailFragment weatherListFragmentDirections
+                    = WeatherListFragmentDirections.actionWeatherListFragmentToWeatherDetailFragment();
+            weatherListFragmentDirections.setWeatherdataId(weatherData.getId());
+            Navigation.findNavController(getView()).navigate(weatherListFragmentDirections);
+        }
     }
+
 
     @Override
     public void onStart() {

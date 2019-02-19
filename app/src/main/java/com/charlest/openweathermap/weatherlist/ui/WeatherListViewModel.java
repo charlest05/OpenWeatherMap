@@ -23,6 +23,9 @@ public class WeatherListViewModel extends ViewModel {
 
     private MutableLiveData<WeatherListUIState> weatherListUIStateMutableLiveData =  new MutableLiveData<WeatherListUIState>();
 
+    private boolean displayErrorMessageFlag = true;
+
+
     @Inject
     IWeatherRepository.IWeatherLocalRepository mWeatherLocalRepository;
 
@@ -61,5 +64,13 @@ public class WeatherListViewModel extends ViewModel {
 
     public MutableLiveData<WeatherListUIState> getWeatherListUIStateMutableLiveData() {
         return weatherListUIStateMutableLiveData;
+    }
+
+    public boolean isDisplayErrorMessageFlag() {
+        return displayErrorMessageFlag;
+    }
+
+    public void setDisplayErrorMessageFlag(boolean displayErrorMessageFlag) {
+        this.displayErrorMessageFlag = displayErrorMessageFlag;
     }
 }

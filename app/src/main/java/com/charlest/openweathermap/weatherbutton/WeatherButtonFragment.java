@@ -5,9 +5,11 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.charlest.openweathermap.RefreshDataEvent;
 import com.charlest.openweathermap.R;
+import com.google.android.material.snackbar.Snackbar;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -26,12 +28,13 @@ public class WeatherButtonFragment extends Fragment {
     }
 
     @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
         view.findViewById(R.id.fabRefresh).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(requireContext(), getString(R.string.reloading_data), Toast.LENGTH_SHORT).show();
                 EventBus.getDefault().post(new RefreshDataEvent("RefreshData"));
             }
         });
