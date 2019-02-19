@@ -26,8 +26,8 @@ OpenWeatherMapApiKey="{YourApiKeyJHere}"
     - The Screen shows the list of Weather information from London, Prague and San Francisco, each item contains location, actual weather and temperature. 
     - It also has refresh button for reloading the Weather information of the said locations
 - **Weather Detail Screen**
-    - The weather detail screen is shown when you tapped an item in main screen
-    - It shows more data about the wether of the selected location
+    - The weather detail screen is shown when you select an item in main screen
+    - It shows more data about the weather of the selected location
     - also, it has refresh button for reloading the Weather information of the selected location
    
    
