@@ -4,7 +4,7 @@ OpenWeatherMap is an Android Application that fetches Weather data for a specifi
 ## Setup Instruction
 - If you encounter build error regarding ApiKey, add the code snippet below inside your **gradle.properties** located in **/home/{user}/.gradle** see full [tutorial](https://medium.com/code-better/hiding-api-keys-from-your-android-repository-b23f5598b906)
 ```
-OpenWeatherMapApiKey="{YourApiKeyJHere}"
+OpenWeatherMapApiKey="{YourApiKeyHere}"
 ```
 
 ## Libraries Used
